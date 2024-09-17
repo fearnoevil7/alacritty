@@ -1,0 +1,212 @@
+# Documentations: https://alacritty.org/config-alacritty.html
+
+[font]
+size = 15
+
+[font.normal]
+family = "MesloLGS Nerd Font"
+#family = "JetBrainsMono Nerd Font"
+style = "Bold"
+
+
+## "thelovelace" Alacritty Theme
+# Default colors
+[colors.primary]
+background = '0x1D1F28'
+#foreground = '0xFDFDFD'
+#foreground = '0xf7eed8'
+foreground = '0x9cb2f2'
+
+
+[colors]
+cursor = { text = '#79E6F3', cursor = '#295191' }
+#vi_mode_cursor = { text = '#FF8037', cursor = '#5ADECD' }
+vi_mode_cursor = { text = '#282A36', cursor = '#F37F97' }
+selection = { text = '#79E6F3', background = '#295191' }
+#line_indicator = { foreground = '#FDFDFD', background = '#556FFF' }
+#line_indicator = { foreground = '#FDFDFD', background = '#FF4971' }
+#line_indicator = { foreground = '#414458', background = '#FF4971' }
+#line_indicator = { foreground = '#414458', background = '#EBCB8B' }
+line_indicator = { foreground = '#414458', background = '#FF8037' }
+#footer_bar = { foreground = '#414458', background = '#556FFF' }
+#footer_bar = { foreground = '#FDFDFD', background = '#3FDCEE' }
+footer_bar = { foreground = '#282A36', background = '#3FDCEE' }
+
+# Cursor
+[cursor]
+style = { shape = "Block", blinking = "Always" }
+blink_interval = 450
+thickness = 0.5
+vi_mode_style = { shape = 'Block', blinking = 'Always' }
+
+[colors.search]
+matches = { foreground = '#FDFDFD', background = '#F37F97' }
+
+# Normal colors
+[colors.normal]
+black =   '0x282A36'
+red =     '0xF37F97'
+green =   '0x5ADECD'
+yellow =  '0xF2A272'
+blue =    '0x8897F4'
+magenta = '0xC574DD'
+cyan =    '0x79E6F3'
+white =   '0xFDFDFD'
+# Bright colors
+[colors.bright]
+black =   '0x414458'
+red =     '0xFF4971'
+green =   '0x18E3C8'
+yellow =  '0xEBCB8B'
+blue =    '0xFF8037'
+magenta = '0x556FFF'
+cyan =    '0x3FDCEE'
+white =   '0xBEBEC1'
+
+## "flat_remix" Alacritty Theme
+## Default colors
+#[colors.primary]
+#background = "#1F2229"
+#foreground = "#E6E6E6"
+#
+## Normal colors
+#[colors.normal]
+#black = "#1F2229"
+#red = "#D41919"
+#green = "#5EBDAB"
+#yellow = "#FEA44C"
+#blue = "#367BF0"
+#magenta = "#BF25ED"
+#cyan = "#49AEE6"
+#white = "#E6E6E6"
+#
+## Bright colors
+#[colors.bright]
+#black = "#8C42AB"
+#red = "#EC0101"
+#green = "#47D489"
+#yellow = "#FF8A18"
+#blue = "#277FFF"
+#magenta = "#D71655"
+#cyan = "#05A1F7"
+#white = "#FFFFFF"
+
+
+[keyboard]
+bindings = [
+#{ key = "", mods = "", action = ""},
+{ key = "PageUp",  action = "ScrollPageUp" },
+{ key = "PageDown",  action = "ScrollPageDown" },
+{ key = "PageUp", mods = "Control", action = "ScrollHalfPageUp" },
+{ key = "PageDown", mods = "Control", action = "ScrollHalfPageDown" },
+{ key = "PageUp", mods = "Shift", action = "ScrollLineUp" },
+{ key = "PageDown", mods = "Shift", action = "ScrollLineDown" },
+
+
+{ key = "F3", action = "SearchFocusNext", mode = "Search|AppCursor"},
+{ key = "F3", mods = "Shift", action = "SearchFocusPrevious", mode = "Search|AppCursor"},
+
+#{ key = "Super", action = "ToggleViMode" },
+#{ key = "Super", action = "ToggleViMode" },
+#{ key = "Escape", mods = "Shift", action = "ToggleSemanticSelection" },
+#{ key = "ArrowUp", mods = "Command", action = "ScrollToTop"},
+#{ key = "ArrowDown", mods = "Command", action = "ScrollToBottom"},
+#{ key = "ArrowLeft", mods = "Option", action = "ToggleViMode" },
+
+
+# To use ansci escape sequences you have to prefix with: \u001B
+
+# Binds Command + Left Arrow to move cursor to the beginning of the line.
+{ key = "ArrowLeft", mods = "Command", chars = "\u001B[1;2D"},
+# Binds Command + Right Arrow to move cursor to the end of the line.
+{ key = "ArrowRight", mods = "Command", chars = "\u001B[1;2C" },
+
+# Binds Option + Left Arrow to move cursor to the beginning of the word.
+{ key = "ArrowLeft", mods = "Option", chars = "\u001B[1;9C" },
+# Binds Option + Right Arrow to move cursor to the end of the word.
+{ key = "ArrowRight", mods = "Option", chars = "\u001B[1;9D" },
+
+# Binds the Option + Delete to delete the previous word.
+{ key = "Back", mods = "Option", chars = "\u001B[1;2H" },
+# Binds the Command + Delete to delete to the beginning of the line.
+{ key = "Back", mods = "Command", chars = "\u001B[1;5D"},
+# Binds the Shift + Command + Delete to delete to the beginning of the line.
+{ key = "Back", mods = "Command|Shift", chars = "\u001B[1;6A"},
+
+# Binds Option + Right Arrow to move cursor to the beginning of the word.
+{ key = "ArrowRight", mods = "Shift|Option", chars = "\u001B[1;10C" },
+# Binds Option + Left Arrow to move cursor to the beginning of the word.
+{ key = "ArrowLeft", mods = "Shift|Option", chars = "\u001B[1;10D" },
+
+# Binds Shift + Control + C to copy.
+{ key = "C", mods = "Shift|Control", chars = "\u001B[1;15F" },
+# Binds Shift + Control + V to paste.
+{ key = "V", mods = "Shift|Control", chars = "\u001B[1;15E" },
+
+# Binds Command + Z to undo.
+{ key = "Z", mods = "Command", chars = "\u001B[Z"},
+# Binds Shift + Command + Z to redo.
+{ key = "Z", mods = "Shift|Command", chars = "\u001B[1;16E"},
+
+
+{ key = "Z", mods = "Command", chars = "\u001B[Z"},
+# Tab Navigation
+{ key = "Tab", mods = "Control", action = "SelectNextTab"},
+{ key = "Tab", mods = "Shift|Control", action = "SelectPreviousTab"},
+{ key = "ArrowRight", mods = "Command|Option", action = "SelectNextTab"},
+{ key = "ArrowLeft", mods = "Command|Option", action = "SelectPreviousTab"},
+
+# Find
+# Forward Find
+{ key = "F", mods = "Command", action = "SearchBackward"},
+# Search Behind
+{ key = "B", mods = "Command", action = "SearchForward"},
+# Confirm Search
+{ key = "Enter", mode = "Search", action = "SearchConfirm"},
+
+{ key = "C", mods = "Shift|Control", action = "Copy"},
+
+]
+
+[window]
+opacity = 0.85
+dynamic_title = true
+option_as_alt = "OnlyRight"
+
+[window.padding]
+x = 5
+y = 5
+
+
+
+#[[hints.enabled]]
+##command = "xdg-open" # On Linux/BSD
+##command = "open /Applications/Firefox.app/Contents/MacOS/firefox" # On macOS
+#command = "open" # On macOS
+## command = { program = "cmd", args = [ "/c", "start", "" ] } # On Windows
+#hyperlinks = true
+#post_processing = true
+#persist = false
+#mouse.enabled = true
+#binding = { key = "U", mods = "Control|Shift" }
+#regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+
+#[[hints.enabled]]
+#command = { program = "/Users/kurama/Assets/ScreenShots/viewImageInBrowser.sh" }
+##command = { program = "bash", args = ["/Users/kurama/Assets/Screenshots/viewImageInBrowser.sh"] }
+#hyperlinks = true
+#post_processing = false
+#persist = false
+#mouse.enabled = true
+#binding = { key = "I", mods = "Command" }
+##regex = "\b.+\.((png)|(jpe?g)|(gif)|(bmp)|(svg))\b"
+##regex = "[^ ]+\\.rs:\\d+:\\d+"
+##regex = "[^ ]+\\.(png|jpe?g|gif):\\d+:\\d+"
+##REGEX = "[^ ]+\\.(PNG|JPE?G|GIF)$"
+#REGEX = "[^.]+\\.(PNG|JPE?G|GIF)"
+##REGEX = "[\S]+\\.(PNG|JPE?G|GIF)"
+
+
+
+
+
